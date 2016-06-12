@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_local"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="지역별" />
+        <item
+            android:id="@+id/nav_hit"
+            android:icon="@drawable/ic_heart"
+            android:title="인기순" />
+        <item
+            android:id="@+id/nav_thema"
+            android:icon="@drawable/ic_thema"
+            android:title="테마별" />
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_user"
+            android:title="개발자 정보" />
+    </group>
+
+</menu>

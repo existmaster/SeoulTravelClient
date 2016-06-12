@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.seoultravel.InfoActivity"
+    tools:showIn="@layout/app_bar_info">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="260dp"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/profile"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:text="이름 : 조나래\n나이 : 27\n소속 : 가천대학교 모바일소프트웨어학과 11기\n관심분야 : 기계학습, 딥러닝, 웹개발(Front)\n취미 : 캐릭터 데생, 보드 게임\n\n안녕하세요 조나래입니다. \n아래 메일 주소로 좋은 여행지를 소개시켜주시면\n감사하겠습니다.\n\nmiroku0820@naver.com"/>
+
+    </LinearLayout>
+</RelativeLayout>
