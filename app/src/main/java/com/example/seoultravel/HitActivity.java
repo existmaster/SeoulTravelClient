@@ -12,9 +12,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class HitActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String url = "http://192.168.10.16:9000/travel/information/top5";
+    ArrayList<ListData> datas = new ArrayList<ListData>();
+    ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +51,42 @@ public class HitActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_hit);
+
+        listview = (ListView) findViewById(R.id.listView);
+        sendRequest();
+    }
+
+    private void sendRequest() {
+        JsonArrayRequest socRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jo = response.getJSONObject(i);
+                        String subject = jo.getString("subject");
+                        String content = jo.getString("contents");
+
+                        datas.add( new ListData(subject, content, R.drawable.korea));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                ListDataAdapter adapter= new ListDataAdapter(getLayoutInflater(), datas);
+                listview.setAdapter(adapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print("VolleyError : " + error.getMessage());
+                VolleyLog.d("ERROR" + error.getMessage());
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(socRequest);
+
     }
 
     @Override

@@ -37,16 +37,14 @@ public class ThemaActivity extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 4"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 5"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 6"));
+        tabLayout.addTab(tabLayout.newTab().setText("맛집 기행"));
+        tabLayout.addTab(tabLayout.newTab().setText("문화·예술"));
+        tabLayout.addTab(tabLayout.newTab().setText("공연·연극"));
+        tabLayout.addTab(tabLayout.newTab().setText("핫 플레이스"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter
+        final ThemePagerAdapter adapter = new ThemePagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
