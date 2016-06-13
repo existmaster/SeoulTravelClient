@@ -66,8 +66,13 @@ public class HitActivity extends AppCompatActivity
                         JSONObject jo = response.getJSONObject(i);
                         String subject = jo.getString("subject");
                         String content = jo.getString("contents");
+                        String imageName = jo.getString("imageName");
 
-                        datas.add( new ListData(subject, content, R.drawable.korea));
+                        String resName = "@drawable/" + imageName;
+                        String packName = getPackageName(); // 패키지명
+                        int imageResource = getResources().getIdentifier(resName, "drawable", packName);
+
+                        datas.add( new ListData(subject, content, imageResource));
 
                     } catch (JSONException e) {
                         e.printStackTrace();
