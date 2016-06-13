@@ -53,8 +53,6 @@ public class ListDataAdapter extends BaseAdapter {
         TextView text_nation= (TextView)convertView.findViewById(R.id.text_content);
         ImageView img_flag= (ImageView)convertView.findViewById(R.id.img_flag);
 
-        String uri = "drawable/korea";
-
         text_name.setText( datas.get(position).getSubject() );
         text_nation.setText( datas.get(position).getContent() );
         img_flag.setImageResource( datas.get(position).getImgId() );
