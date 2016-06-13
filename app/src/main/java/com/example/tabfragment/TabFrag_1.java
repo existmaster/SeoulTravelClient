@@ -26,7 +26,8 @@ import java.util.ArrayList;
 
 public class TabFrag_1 extends Fragment {
 
-    String url = "http://192.168.10.16:9000/travel/information/search?themeType=Food";
+    String url = "http://172.16.38.19:9000/travel/information/search?themeType=Food";
+    //String url = "http://192.168.10.16:9000/travel/information/search?themeType=Food";
     ArrayList<ListData> datas = new ArrayList<ListData>();
     ListView listview;
 
@@ -51,8 +52,13 @@ public class TabFrag_1 extends Fragment {
                         JSONObject jo = response.getJSONObject(i);
                         String subject = jo.getString("subject");
                         String content = jo.getString("contents");
+                        String imageName = jo.getString("imageName");
 
-                        datas.add( new ListData(subject, content, R.drawable.korea));
+                        String resName = "@drawable/" + imageName;
+                        String packName = getContext().getPackageName(); // 패키지명
+                        int imageResource = getResources().getIdentifier(resName, "drawable", packName);
+
+                        datas.add( new ListData(subject, content, imageResource));
 
                     } catch (JSONException e) {
                         e.printStackTrace();

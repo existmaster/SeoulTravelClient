@@ -31,7 +31,8 @@ import java.util.ArrayList;
 public class HitActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String url = "http://192.168.10.16:9000/travel/information/top5";
+    String url = "http://172.16.38.19:9000/travel/information/top5";
+    //String url = "http://192.168.10.16:9000/travel/information/top5";
     ArrayList<ListData> datas = new ArrayList<ListData>();
     ListView listview;
 
