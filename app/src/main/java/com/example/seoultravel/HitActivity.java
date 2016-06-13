@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class HitActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String url = "http://172.16.38.19:9000/travel/information/top5";
-    //String url = "http://192.168.10.16:9000/travel/information/top5";
+    //String url = "http://172.16.38.19:9000/travel/information/top5";
+    String url = "http://192.168.10.16:9000/travel/information/top5";
     ArrayList<ListData> datas = new ArrayList<ListData>();
     ListView listview;
 
@@ -67,12 +67,13 @@ public class HitActivity extends AppCompatActivity
                         String subject = jo.getString("subject");
                         String content = jo.getString("contents");
                         String imageName = jo.getString("imageName");
+                        String hit = jo.getString("likeCount");
 
                         String resName = "@drawable/" + imageName;
                         String packName = getPackageName(); // 패키지명
                         int imageResource = getResources().getIdentifier(resName, "drawable", packName);
 
-                        datas.add( new ListData(subject, content, imageResource));
+                        datas.add( new ListData(subject, content, imageResource, hit));
 
                     } catch (JSONException e) {
                         e.printStackTrace();

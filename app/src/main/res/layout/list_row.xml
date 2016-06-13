@@ -1,42 +1,65 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="3dp"
-    android:weightSum="10">
+    android:padding="5dip" >
 
-    <ImageView android:id="@+id/img_flag"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_weight="3"
-        android:src="@drawable/korea"
-        android:layout_marginLeft="0dp"/>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="7"
-        android:orientation="vertical"
-        android:weightSum="5">
-
-        <TextView android:id="@+id/text_subject"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:text="NAME"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center_vertical"
-            android:padding="3dp"/>
-
-        <TextView android:id="@+id/text_content"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:text="NATION"
-            android:gravity="center_vertical"
-            android:padding="3dp"/>
-
+    <!--  ListRow Left side Thumbnail image -->
+    <LinearLayout android:id="@+id/layoutimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip">
+        <ImageView
+            android:id="@+id/img_flag"
+            android:layout_width="100dip"
+            android:layout_height="100dip" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/text_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/layoutimg"
+        android:layout_toRightOf="@+id/layoutimg"
+        android:text="Rihanna Love the way lie"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_subject"
+        android:textColor="#343434"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/layoutimg"  />
+
+    <ImageView
+        android:id="@+id/img_hit"
+        android:src="@drawable/ic_hit"
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp" />
+
+    <TextView
+        android:id="@+id/text_hit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/img_hit"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        />
+
+</RelativeLayout>

@@ -49,13 +49,16 @@ public class ListDataAdapter extends BaseAdapter {
             convertView= inflater.inflate(R.layout.list_row, null);
         }
 
-        TextView text_name= (TextView)convertView.findViewById(R.id.text_subject);
-        TextView text_nation= (TextView)convertView.findViewById(R.id.text_content);
+        TextView text_subject= (TextView)convertView.findViewById(R.id.text_subject);
+        TextView text_content= (TextView)convertView.findViewById(R.id.text_content);
         ImageView img_flag= (ImageView)convertView.findViewById(R.id.img_flag);
+        TextView text_hit= (TextView)convertView.findViewById(R.id.text_hit);
 
-        text_name.setText( datas.get(position).getSubject() );
-        text_nation.setText( datas.get(position).getContent() );
+        text_subject.setText( datas.get(position).getSubject() );
+        text_content.setText( datas.get(position).getContent() );
         img_flag.setImageResource( datas.get(position).getImgId() );
+
+        text_hit.setText( datas.get(position).getHit() );
 
         return convertView;
     }
